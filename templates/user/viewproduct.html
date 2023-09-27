@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+View Product : Fav Cart India
+{% endblock %}
+
+{% block content %}
+<div class="fs-2 text-center py-3"><b>Your Selected </b> <b class="text-ocolor">Product <i class="fa-solid fa-cart-shopping"></i></b></div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            {% for a in pdata %}
+            <div class="col-sm-12">
+                <!-- start card -->
+                <div class="card mb-3 w-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/{{a.ppic}}" class="img-thumbnail rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 mess">
+                            <div class="card-body">
+                                <h5 class="card-title">{{a.pcategory}}</h5>
+                                <p class="card-text">{{a.pdes}}</p>
+                                <p class="card-text">
+                                    <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
+                                    <span class="text-danger ps-3 fs-5"><s>{{a.pprice}}/-</s></span>
+                                    <span class="text-success ps-3 fs-5">{{a.dprice}}/-</span><br><br>
+                                    <span class="btn btn-sm bg-ocolor"><b>Size </b>- {{a.psize}}</span>
+                                    <div class="text-center" style="height:30px; width:60px; background:{{a.pcolor}}; border-radius:5px;">Color</div>
+                                    <i class="fa-solid fa-calendar-days ms-1 mt-3"></i>
+                                    <b><span class="text-muted">Date : {{a.pdate}}</span></b><br><br>
+                                    <b class="ps-1">{{a.pdel}}</b>
+                                </p>
+                                <p class="card-text">
+                                    <a href="/user/myordr?msg={{a.id}}" class="btn btn-sm bg-ocolor text-dark ms-1">Order Now <i class="fa-solid fa-bag-shopping"></i></a>
+                                    <a href="/user/mcart?pid={{a.id}}" class="btn btn-sm bg-bcolor text-white ms-3">Add To Cart <i class="fa-solid fa-cart-shopping"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+{% endblock %}

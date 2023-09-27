@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Sign In : Fav Cart India
+{% endblock %}
+
+{% block content %}
+<style>
+    .g{
+        border-radius:20px;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+    }
+</style>
+
+<div class="row" style="">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div class="row my-4 mx-1 bs" style="border-radius:10px;">
+            <div class="col-sm-12" style="background:rgba(0,0,0,.7); border-radius:10px; box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19); ">
+                <div class="fs-2 text-center pt-2"><b class="text-light">Login </b> <b class="text-ocolor">Here <i class="fa-solid fa-key"></i></b></div>
+            <form method="post">
+            {% csrf_token %}
+                <div class="input-group pt-3">
+                    <i class="input-group-text g"><i class="fa-solid fa-envelope"></i></i>
+                    <input type="email" name="email" class="form-control g" placeholder="Enter Your Email" required/>
+                </div>
+                <div class="input-group pt-3">
+                    <i class="input-group-text g"><i class="fa-solid fa-lock"></i></i>
+                    <input type="password" name="passwd" class="form-control g" placeholder="Enter Your Password" required/>
+                </div>
+                    <input type="submit" value="Login" class="btn bg-ocolor w-100 mt-3 g"/>
+                <center>
+                    <b class="text-light">Don't have any account ? <a href="/user/signup/" class="text-ocolor" style="text-decoration:none;">Register Here</a></b>
+                </center>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}

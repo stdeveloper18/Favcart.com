@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Profile : Fav Cart India
+{% endblock %}
+
+{% block content %}
+{% if not request.session.userid %}
+<script>
+    alert('You have to Login First ..')
+    location.href='/user/signin/'
+</script>
+{% endif %}
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script>
+    $(document).ready(function()
+    {
+        $("#btne").click(function()
+        {
+            $(".uform").slideToggle(2000)
+        })
+    })
+</script>
+
+<style>
+    .ms2{
+        background-size:cover;
+        border-radius:10px;
+    }
+    .sst{
+        box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+        border-radius:10px;
+    }
+    .nam{
+        background:rgba(255,255,255,.9);
+        border:2px solid black;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+        border-radius:10px;
+    }
+    .prod{
+        background:#e5ffff;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+        border-radius:10px;
+    }
+    .uform{
+        display:none;
+    }
+</style>
+
+<div class="row mt-3 pb-2 mx-5">
+    <div class="fs-2 text-center">
+    <b>My </b>
+    <b class="text-ocolor">Profile <i class="fa-solid fa-address-card"></i></b><br>
+</div>
+    {% for x in mydata %}
+    <div class="col-sm-3 "></div>
+    <div class="col-sm-2 sst mt-4 py-2">
+        <center><img src="/{{x.ppic}}" class="img-fluid rounded" style="max-height:300px;" alt="..."/></center>
+    </div>
+    <div class="col-sm-4 mt-4  sst">
+        <div class="row">
+        <div class="col-sm-12 ms-1 mt-2"><b class="fs-3 text-center">{{x.name}}</b></div>
+    <div class="col-sm-12 ms-1 mt-3 fs-5"><i class="fas fa-phone alt text-ocolor"></i><b class="text-ocolor"> Mobile : </b>{{x.mobile}}</div>
+    <div class="col-sm-12 ms-1 mt-3 fs-5"><i class="fa-solid fa-envelope text-ocolor"></i><b class="text-ocolor"> Email : </b>{{x.email}}</div>
+    <div class="col-sm-12 ms-1 mt-3 fs-5"><i class="fa-solid fa-key text-ocolor"></i><b class="text-ocolor"> Password : </b>{{x.passwd}}</div>
+    <div class="col-sm-12 ms-1 mt-3 mb-2 fs-5"><i class="fa-solid fa-house-chimney text-ocolor"></i><b class="text-ocolor"> Address : </b>{{x.address}}</div>
+    <div class="col-sm-12 my-2 "><input type="submit" value="Edit Profile" id="btne" class="float-end btn border border-1 border-dark text-ocolor"/></div>
+    </div>
+        </div>
+        <div class="col-sm-3"></div>
+        {% endfor %}
+</div>
+
+<!-- form -->
+<div class="container-fluid" style="background-attachment:fixed;">
+    <div class="row bsc py-5">
+        <div class="col-sm-12 uform">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="row px-5">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 nam rounded px-4 py-3">
+                    {% if m %}
+                    <div class="alert alert-success">Registered Successfully</div>
+                    {% endif %}
+                    <div class="input-group">
+                        <i class="input-group-text"><i class="fa-solid fa-user"></i></i>
+                        <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required autocomplete="off"/>
+                    </div>
+                    <div class="input-group mt-4 mb-2">
+                        <i class="input-group-text"><i class="fa-solid fa-lock"></i></i>
+                        <input type="password" name="passwd" class="form-control" placeholder="Enter Your Password" required autocomplete="off"/>
+                    </div>
+                    <div class="input-group mt-4 mb-2">
+                        <i class="input-group-text"><i class="fas fa-phone alt"></i></i>
+                        <input type="number" name="mob" class="form-control" placeholder="Enter Your Contact Number" required autocomplete="off"/>
+                    </div>
+                    <div class="input-group mt-4 mb-2">
+                        <i class="input-group-text"><i class="fa-solid fa-image"></i></i>
+                        <input type="file" name="ppic" required class="form-control ps-3"/>
+                    </div>
+                    <div class="input-group mt-4 mb-2">
+                        <i class="input-group-text"><i class="fa-solid fa-home"></i></i>
+                        <textarea class="form-control" name="add" rows="4" placeholder="Enter Your Address" required autocomplete="off" ></textarea>
+                    </div>
+                    <input type="submit" value="SAVE" class="w-100 btn mt-4 btn-outline-success"/>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- end form -->
+{% endblock %}

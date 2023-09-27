@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Enquiry : Fav Cart India
+{% endblock %}
+
+{% block content %}
+
+<!-- start enquiry form -->
+
+<style>
+    .btn:hover{
+        background:#ff7d1e;
+        color:white;
+    }
+    .seconddiv{
+        background:#ffffff;
+        border-radius:7px;
+        border:1px solid #dedede;
+    }
+    .tell{
+        text-decoration:none;
+        color:black;
+    }
+    firstdiv{
+        box-shadow:0 2px 4px 0 rgba(0,0,0,.7);
+        border-radius:7px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="fs-2 text-center pt-3"><b>Enquiry with</b> <b class="text-ocolor">Us <i class="fa-solid fa-message"></i></b></div>
+<p class="text-center" >
+    Any time you need Professional Support or have any Question, You can contact with us by<br> filling this form or with Contact Number.
+    </p>
+    <div class="container bg-light rounded pb-5 ps-5 pe-5 pt-3">
+        <div class="col text-center">
+        </div>
+        <div class="row">
+            <div class="col-sm-7 my-4">
+                <h4 class="divHeading">Send Your Enquiry<b class="text-ocolor"> Message</b></h4>
+                {% if m %}
+                <div class="alert alert-success"><b>Your Message Send Succefully</b></div>
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="mt-3">Your Name :</label>
+                            <div class="input-group firstdiv">
+                                <i class="input-group-text"><i class="fa-solid fa-user"></i></i>
+                            <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required/>
+                                </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="mt-3">Your Contact :</label>
+                             <div class="input-group firstdiv">
+                                <i class="input-group-text"><i class="fas fa-phone alt"></i></i>
+                            <input type="number" name="mob" class="form-control" placeholder="Enter Your Contact Number" required/>
+                                </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="mt-3">Your Email :</label>
+                             <div class="input-group firstdiv">
+                                <i class="input-group-text"><i class="fa-solid fa-envelope"></i></i>
+                             <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required/>
+                                </div>
+
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="mt-3">Your Message :</label>
+                            <textarea class="form-control firstdiv" rows="5" name="msg" placeholder="Type Your Message Here" required></textarea>
+                        </div>
+                        <div class="col-sm-12 mt-3">
+                            <input type="submit" class="btn text-ocolor border border-1 border-dark" name="submit" value="SEND MESSAGE" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-5 seconddiv my-4">
+                <div class="row">
+                    <h4 class="fs-3 ps-4 pt-4">Contact <b>Information</b></h4>
+                    <div class="contact">
+                        <i class="fas fa-map-marker-alt text-ocolor ps-4 pt-3"></i>
+                        <strong class="ps-1 text-ocolor"> Address</strong>
+                        <p class="ps-5">
+                            Village & Post - Vasit Nagar,<br />
+                            Shahabad, Hardoi<br />
+                            Uttar Pradesh 241124
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <i class="fa-solid fa-phone text-ocolor ps-4 pt-3"></i>
+                        <strong class="ps-1 text-ocolor">Call Us</strong>
+                        <p class="ps-5">
+                            <a href="tel:+91 6388062241" class="tell">+91 6388062241</a><br>
+                            <a href="tel:+91 8171723762" class="tell">+91 8171723762</a>
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <i class="fa-solid fa-envelope text-ocolor ps-4 pt-3"></i>
+                        <strong class="ps-1 text-ocolor">Mail Us</strong>
+                        <p class="ps-5">
+                            <a href="mailto:suvrattripathi222@gmail.com" class="tell">suvrattripathi222@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end enquiry form -->
+
+<!-- start google map -->
+
+<div class="container-fluid rounded my-5 firstdiv">
+     <div class="fs-2 text-center pt-2">Find us on <b class="text-ocolor">Google Map <i class="fa-solid fa-location-dot"></i></b></div>
+    <p class="text-center">
+        <b>Very Easy to find us On Google Map</b>
+    </p>
+    <div class="col-sm-12">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1588441496056!2d80.96423161504458!3d26.898453483133807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39995785d5f7f1a5%3A0xffa47f1efe103f0d!2sTechpile+Technology+Pvt.+Ltd.!5e0!3m2!1sen!2sin!4v1539247368696"
+                frameborder="0" height="300px" width="100%" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- end google map -->
+
+{% endblock %}

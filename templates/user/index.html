@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Fav Cart India
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .nam {
+        background: #cce8ff;
+    }
+
+    .arr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<!-- start slider -->
+<div class="row slider">
+    <div class="col-sm-12 p-0">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/sl11.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/sl22.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/sl33.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- end slider -->
+</div>
+<!-- end slider -->
+
+<!-- start category -->
+<div class="row category px-3 pt-3 pb-5">
+    <div class="col col-lg-4 w">
+        <center>
+            <a href="/user/mens/" class="btn btn-lg btn1">Mens</a>
+        </center>
+    </div>
+    <div class="col col-lg-4 m">
+        <center>
+            <a href="/user/womens/" class="btn btn-lg btn1">Womens</a>
+        </center>
+    </div>
+    <div class="col col-lg-4 k">
+        <center>
+            <a href="/user/kids/" class="btn btn-lg btn1">Kids</a>
+        </center>
+    </div>
+</div>
+<!-- end category -->
+
+<!-- start product -->
+<div class="row product rounded mx-4 pt-2 pb-1">
+    <div class="fs-2 text-center py-1" style="font-family:Times New Roman"><b>OUR</b> <b class="text-ocolor">PRODUCT <i
+                class="fa-solid fa-cart-arrow-down"></i></b>
+        <u class="text-ocolor "></u>
+    </div>
+    {% if data %}
+    {% for x in data %}
+    <div class="col py-2">
+        <!-- start card -->
+        <a href="/user/cpdetail?cid={{x.id}}" style="text-decoration:none; color:black;">
+            <div class="card w-100">
+                <img src="/{{x.CPic}}" class="card-img-top img-thumbnail" style="max-height:260px" alt="...">
+                <div class="card-body nam">
+                    <h5 class="card-title text-center">{{x.Name}}</h5>
+                </div>
+            </div>
+        </a>
+        <!-- end card -->
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<!-- end product -->
+
+<!-- start new arivals -->
+<div class="row rounded mt-3 mx-3 px-3">
+    <div class="col-lg-3 col-sm-12 col-md-12 py-3 arr text-center mensbg" style="min-height:250px;">
+        <div class="text-center"><b class="fs-1" style="font-family:Times New Roman">New <b
+                    class="text-ocolor fs-1">Arivals <i class="fa-solid fa-shirt"></i></b></b>
+            <p class="fs-5 px-5" style="text-align:justify;">
+                Here are some product which are new arivals in our store. These are very beautiful and branded product.
+                These are in very low price and vary soft to wear. Any middle class family man can bear it. This is very
+                beautiful and attractive product that will be remember . In Fav Cart India You will get best Product in
+                less price.
+            </p>
+        </div>
+    </div>
+    <!-- start product -->
+    {% for a in prodata %}
+    <div class="col-lg-3 col-md-6 col-sm-6 pt-3 pb-2 mensbg">
+        <div class="card">
+            <img src="/{{a.ppic}}" class="img-card-top img-thumbnail" style="max-height:350px;" />
+            <div class="card-body">
+                <h5 class="card-title">{{a.pcategory}}</h5>
+                <hr class="divider" />
+                <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
+                <b class="text-danger ps-2 fs-5"><s>{{a.pprice}}/-</s></b>
+                <b class="text-success ps-2 fs-5"> {{a.dprice}}/-</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b class="btn btn-sm bg-ocolor"> {{a.psize}}</b>
+                <div class="float-end mt-2"
+                    style="height:20px; width:20px; background:{{a.pcolor}}; border-radius:3px;"></div>
+                <hr class="divider">
+                <span class="text-primary fs-5">{{a.pdel}}</span>
+                <span class="text-muted float-end"><b>Date</b> : {{a.pdate}}</span><br>
+                <a href="/user/viewproduct?msg={{a.id}}" class="btn btn-sm mt-2 bg-ocolor">Order Now</a>
+                <a href="/user/mcart?pid={{a.id}}" class="btn btn-sm mt-2 float-end bg-ocolor">Cart <i
+                        class="fa-solid fa-cart-arrow-down"></i></a><br>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- end product -->
+</div>
+<!-- end new arivals -->
+
+<!-- start bigsale -->
+<div class="row bigsale">
+    <div class="fs-2 text-center pt-3" style="font-family:Times New Roman"><b>BIG</b> <b class="text-ocolor">SALE <i
+                class="fa-solid fa-exclamation"></i></b></div>
+    <div class="row mt-3" style="min-height:300px;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 bs"></div>
+        <div class="col-sm-4 bg-light rounded bs2 pb-3">
+            <b class="fs-2 text-ocolor">50% less in all itmes</b><br><br>
+            <i><B>New Arrivals New Collection.</B><br>
+                <b>Flat 50% off in every item You buy from FAVCART INDIA.</b><br>
+                <b>Offer valid for 5 days only.</b><br>
+                <b>HURRY UP !</b></i><br><br>
+            <a href="/user/mens/"><input type="submit" value="SHOP NOW" class="shopnow"></a>
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<!-- end bigsale -->
+
+<!--Mens Product-->
+<div class="row">
+    <div class="fs-2 py-3" style="font-family:Times New Roman;"><b class="ps-2" style="border-left:5px solid #24e925;"> Latest Mens</b> <b class="text-ocolor">Product</b></div>
+    {% for men in men %}
+    <div class="col col-lg-3 col-md-6 p-3">
+        <img src="/{{men.ppic}}" class="img-thumbnail" style="max-height:400px;"/>
+        <center>
+        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> Price </b>
+        <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b>
+        <b class="text-success ps-2 fs-5"> {{men.dprice}}/-</b><br><br>
+        <a href="/user/viewproduct?msg={{men.id}}" class="btn btn-sm mt-2 px-5 bg-ocolor">Shop Now</a>
+            </center>
+    </div>
+    {% endfor %}
+</div>
+<!--End Mens Product-->
+
+<!--Women Product-->
+<div class="row">
+    <div class="fs-2 py-3" style="font-family:Times New Roman;"><b class="ps-2" style="border-left:5px solid #24e925;"> Latest Women</b> <b class="text-ocolor">Product</b></div>
+    {% for men in women %}
+    <div class="col col-lg-3 col-md-6 p-3">
+        <img src="/{{men.ppic}}" class="img-thumbnail" style="max-height:400px;"/>
+        <center>
+        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> Price </b>
+        <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b>
+        <b class="text-success ps-2 fs-5"> {{men.dprice}}/-</b><br><br>
+        <a href="/user/viewproduct?msg={{men.id}}" class="btn btn-sm mt-2 px-5 bg-ocolor">Shop Now</a>
+            </center>
+    </div>
+    {% endfor %}
+</div>
+<!--End Women Product-->
+
+<!--KId Product-->
+<div class="row">
+    <div class="fs-2 py-3" style="font-family:Times New Roman;"><b class="ps-2" style="border-left:5px solid #24e925;"> Latest Kid</b> <b class="text-ocolor">Product</b></div>
+    {% for men in kid %}
+    <div class="col col-lg-3 col-md-6 p-3">
+        <img src="/{{men.ppic}}" class="img-thumbnail" style="max-height:400px;"/>
+        <center>
+        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> Price </b>
+        <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b>
+        <b class="text-success ps-2 fs-5"> {{men.dprice}}/-</b><br><br>
+        <a href="/user/viewproduct?msg={{men.id}}" class="btn btn-sm mt-2 px-5 bg-ocolor">Shop Now</a>
+            </center>
+    </div>
+    {% endfor %}
+</div>
+<!--KID Mens Product-->
+
+<!--Start Our-Services -->
+<div class="row message my-2">
+    <div class="fs-2 pt-2 text-center" style="font-family:Times New Roman"><b>Our</b> <b class="text-ocolor">Services
+        </b><i class="fa-brands fa-servicestack"></i>
+    </div>
+    <div class="row px-5 pb-5 my-0 ms-0" style="min-height:50px;">
+        <div class="col-lg-3 col-md-6 mt-2 pb-2 mess border border-1 border-dark">
+            <div class="row" style="min-height:50px;">
+                <div class="col-sm-3">
+                    <i class="fa-solid fa-truck fs-1 ps-4 pt-4 text-ocolor"></i>
+                </div>
+                <div class="col-sm-9 pt-3 ps-1">
+                    <b>FREE SHOPPING</b><BR>
+                    For all order upto ₹ 2000
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-2 pb-2 mess border border-1 border-dark">
+            <div class="row" style="min-height:50px;">
+                <div class="col-sm-3">
+                    <i class="fa-solid fa-clock fs-1 ps-4 pt-4 text-ocolor"></i>
+                </div>
+                <div class="col-sm-9 pt-3 ps-0">
+                    <b>DELIVERY ON TIME</b><BR>
+                    Fastest Delivery at Doorstep
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-2 pb-2 mess border border-1 border-dark">
+            <div class="row" style="min-height:50px;">
+                <div class="col-sm-3">
+                    <i class="fa-solid fa-rotate-left fs-1 ps-4 pt-4 text-ocolor"></i>
+                </div>
+                <div class="col-sm-9 pt-3 ps-0">
+                    <b>FREE RETURNS</b><BR>
+                    Free Returns for Bad Product
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-2 pb-2 mess border border-1 border-dark">
+            <div class="row" style="min-height:50px;">
+                <div class="col-sm-3">
+                    <i class="fa-solid fa-lock fs-1 ps-4 pt-4 text-ocolor"></i>
+                </div>
+                <div class="col-sm-9 pt-3 ps-0">
+                    <b>SECURE PAYMENT</b><BR>
+                    100% Secure Payment
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end Our-Services -->
+{% endblock %}

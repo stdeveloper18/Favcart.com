@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+My Order : Fav Cart India
+{% endblock %}
+
+{% block content %}
+
+{% if not request.session.userid %}
+<script>
+    alert('You have to Login First ..')
+    location.href='/user/signin/'
+</script>
+{% endif %}
+
+<div class="row mt-2">
+    <div class="fs-2 text-center py-2"><b>Pending </b> <b class="text-ocolor">Order</i></b></div>
+    <div class="col-sm-12 table-responsive-sm pt-2">
+<table class="table table-striped mensbg">
+    <tr>
+    <th>Product Order No.</th>
+    <th>Product Picture</th>
+    <th>Product Price</th>
+    <th>Product Discount Price</th>
+    <th>Product Size</th>
+    <th>Product color</th>
+    <th>Product delivery</th>
+    <th>Product Status</th>
+    <th>Product Order Date</th>
+    <th>Cancel</th>
+    </tr>
+    {% for i in pdata %}
+    <tr>
+        <td>{{i.11}}</td>
+        <td><img src="/{{i.7}}" class="img-thumbnail" style="max-height:150px;"/></td>
+        <td class="text-danger fw-bold">{{i.1}}</td>
+        <td class="text-success fw-bold">{{i.2}}</td>
+        <td><span class="btn bg-ocolor">Size - {{i.3}}</span></td>
+        <td><div style="height:45px; width:45px; border-radius:5px; background:{{i.4}};"></div></td>
+        <td class="fw-bold">{{i.6}}</td>
+        <td><a class="btn btn-sm bg-danger text-white">{{i.14}}</a></td>
+        <td>{{i.15}}</td>
+        <td><a href="/user/myorder?oid={{i.11}}" class="btn btn-sn bg-danger text-white">Cancel <i class="fa-solid fa-xmark"></i></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+    <!-- start delivered data -->
+        <div class="fs-2 text-center py-2"><b>Delivered </b> <b class="text-ocolor">Order</i></b></div>
+    <div class="col-sm-12 table-responsive-sm pt-2">
+<table class="table table-striped mensbg">
+    <tr>
+    <th>Product Order No.</th>
+    <th>Product Picture</th>
+    <th>Product Price</th>
+    <th>Product Discount Price</th>
+    <th>Product Size</th>
+    <th>Product color</th>
+    <th>Product delivery</th>
+    <th>Product Status</th>
+    <th>Product Order Date</th>
+    </tr>
+    {% for i in ddata %}
+    <tr>
+        <td>{{i.11}}</td>
+        <td><img src="/{{i.7}}" class="img-thumbnail" style="max-height:150px;"/></td>
+        <td class="text-danger fw-bold">{{i.1}}</td>
+        <td class="text-success fw-bold">{{i.2}}</td>
+        <td><span class="btn bg-ocolor">Size - {{i.3}}</span></td>
+        <td><div style="height:45px; width:45px; border-radius:5px; background:{{i.4}};"></div></td>
+        <td class="fw-bold">{{i.6}}</td>
+        <td><a class="btn btn-sm bg-info text-dark">{{i.14}}</a></td>
+        <td>{{i.15}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+    <!-- end delivered data -->
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Women Product : Fav Cart India{% endblock %}
+
+{% block content %}
+<div class="row mx-1">
+    <div class="col-sm-12 px-3">
+        <div class="row mt-2">
+            <nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><b>Women </b>
+                <b class="text-ocolor">Product <i class="fa-solid fa-cart-shopping"></i></b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span><b>Category</B>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Product Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          {% for x in cats %}
+            <li class="list-group-item pt-3">
+                <!-- start card -->
+                <div class="card w-100" style="border:2px solid green">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/{{x.CPic}}" style="max-height:80px;" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <a href="/user/womens?abc={{x.id}}" style="text-decoration:none;">
+                                    <h5 class="card-title pt-2">{{x.Name}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card -->
+            </li>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+            <!-- mens product start -->
+            {% for a in prodata %}
+            <div class="col-sm-3 pt-3">
+                <div class="card mensbg">
+                    <img src="/{{a.ppic}}" class="img-card-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{a.pcategory}}</h5>
+                        <hr class="divider" />
+                        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
+                        <b class="text-danger ps-2 fs-5"><s>{{a.pprice}}/-</s></b>
+                        <b class="text-success ps-2 fs-5"> {{a.dprice}}/-</b><br>
+                        <b class="btn btn-sm mt-2 bg-ocolor"><b>Size</b> - {{a.psize}}</b>
+                        <div class="mt-2 float-end"
+                            style="height:20px; width:20px; background:{{a.pcolor}}; border-radius:3px;"></div>
+                        <hr class="divider">
+                        <span class="text-primary">{{a.pdel}}</span>
+                        <span class="text-muted float-end"><i class="fa-solid fa-calendar-days"></i>
+                            -{{a.pdate}}</span><br>
+                        <a href="/user/viewproduct?msg={{a.id}}" class="btn btn-sm mt-2 bg-ocolor">Order Now</a>
+                        <a href="/user/mcart?pid={{a.id}}" class="btn btn-sm mt-2 float-end bg-ocolor">Cart <i
+                                class="fa-solid fa-cart-arrow-down"></i></a><br>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- mens product end -->
+        </div>
+    </div>
+</div>
+{% endblock %}

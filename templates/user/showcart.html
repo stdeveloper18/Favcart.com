@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+My Cart : Fav Cart India
+{% endblock %}
+
+{% block content %}
+
+{% if not request.session.userid %}
+<script>
+    alert('You have to Login First ..')
+    location.href='/user/signin/'
+</script>
+{% endif %}
+
+<div class="row mt-1">
+        <div class="fs-2 text-center py-3"><b>Your Cart </b> <b class="text-ocolor">Product</i></b></div>
+    <div class="col-sm-12 table-responsive-sm">
+<table class="table table-striped mensbg">
+    <tr>
+    <th>Product Order No.</th>
+    <th>Product Picture</th>
+    <th>Product Price</th>
+    <th>Product Discount Price</th>
+    <th>Product Size</th>
+    <th>Product color</th>
+    <th>Product delivery</th>
+    <th>Date</th>
+    <th>Order </th>
+    <th>Delete</th>
+    </tr>
+    {% for i in odata %}
+    <tr>
+        <td>{{i.11}}</td>
+        <td><img src="/{{i.7}}" class="img-thumbnail" style="max-height:150px;"/></td>
+        <td class="text-danger fw-bold">{{i.1}}</td>
+        <td class="text-success fw-bold">{{i.2}}</td>
+        <td><span class="btn bg-ocolor">Size - {{i.3}}</span></td>
+        <td><div style="height:45px; width:45px; border-radius:5px; background:{{i.4}};"></div></td>
+        <td class="fw-bold">{{i.6}}</td>
+        <td>{{i.15}}</td>
+        <td><a href="/user/showcart?cid={{i.11}}&pid={{i.13}}" class="btn btn-sn bg-ocolor text-dark">Order Now <i class="fa-solid fa-cart-arrow-down"></i></a></td>
+        <td><a href="/user/showcart?msg={{i.11}}" class="btn btn-sn bg-danger text-white"><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</div>
+
+{% endblock %}

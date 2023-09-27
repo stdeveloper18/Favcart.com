@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Admin's Page : Fav Cart India
+{% endblock %}
+
+{% block content %}
+<style>
+    .abt{
+        background:url("{% static 'profile/pic10.jpg' %}");
+        background-size:cover;
+        min-height:300px;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+        border-radius:10px;
+    }
+</style>
+
+<div class="fs-2 text-center pt-3">
+    <b>Website Developer</b>
+    <b class="text-ocolor">Information</b><br>
+</div>
+<div class="row mt-5 pb-5">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4 abt"></div>
+            <div class="col-sm-6" style="box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19); border-radius:10px;">
+                <h4 class="text-center pt-4"><span class="text-ocolor"><B>Hii... </B></span>Welcome<br>This is <span class="text-ocolor"><B>Suvrat Tripathi,</B></span> developer of <b>Fav Cart India</b></h4>
+                <p class="text-center pt-4">
+                    <b>Fav Cart India</b> is developed by <b><i>Suvrat Tripathi</i></b>. His aim is to make shopping easy and secure.
+                    He is trying to give you better things in less price.
+                </p>
+                <p class="text-center pt-4">
+                    <b>Suvrat Tripathi</b> is student of  <b>Techpile Technology Pvt Ltd.</b>
+                    He learn Website Designing from Techpile Technology In the under of Most Respected<b> Mr. Rahul Sir</b>
+                </p>
+                <p class="text-center pt-4">
+                    <b><i>"I changed my life in Techpile Technology with the help of Rahul Sir"</i></b>
+                </p>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+{% endblock %}

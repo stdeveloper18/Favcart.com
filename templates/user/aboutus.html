@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About Us : Fav Cart India
+{% endblock %}
+
+{% block content %}
+<style>
+    .abt{
+        background:url("{% static 'images/aboutpic.webp' %}");
+        background-size:100% 100%;
+        min-height:400px;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+        border-radius:10px;
+    }
+</style>
+
+<div class="fs-2 text-center pt-3">
+    <b>About</b>
+    <b class="text-ocolor">Us</b>
+</div>
+
+<p class="text-center">There are many reasons to choose <b>Fav Cart India.</b>This is fully trusted Online Market Place, Beleive me <br> We will give you better product</p>
+<center><span class="devi"></span></center>
+<div class="row mt-5 pb-5">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row mx-2">
+            <div class="col-sm-6 img-thumbnail abt"></div>
+            <div class="col-sm-6" style="box-shadow:0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19); border-radius:10px;">
+                <h4 class="text-center pt-4">Welcome to the <span class="text-ocolor"><B>Fav Cart India</B></span>,<br> Just there are some words to describe</h4>
+                <p class="text-center pt-4">
+                    <b>Fav Cart India</b> is developed by <b><i>Suvrat Tripathi</i></b>. His aim is to make shopping easy and secure.
+                    We are trying to give you better things in less price. Our thinking is that our customer feel
+                    better when he visit our website.
+                </p>
+                <p class="text-center pt-4">
+                    <b>Fav Cart India</b> is working for <i>Easy Shopping.</i> In Fav Cart India, here is very easy to do shopping.
+                    If we talking about other E-Commerce Website, You will found a better product in less price.
+                </p>
+                <p class="text-center pt-4">
+                    <b><i>"We are promishing you to give best product  in less price"</i></b>
+                </p>
+                <center><a href="/user/enquiry/" class="btn border border-2 border-success my-2 ms-1">Contact Us</a></center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+{% endblock %}
