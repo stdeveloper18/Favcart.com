@@ -6,9 +6,9 @@ Kids Product : Fav Cart India
 {% endblock %}
 
 {% block content %}
-
-<div class="row mx-1">
-    <div class="col-sm-12 px-3">
+<div class="container">
+<div class="row">
+    <div class="col-sm-12 px-1">
         <div class="row rounded mt-2">
 <nav class="navbar bg-light">
   <div class="container-fluid">
@@ -51,29 +51,22 @@ Kids Product : Fav Cart India
 </nav>
         <!-- mens product start -->
         {% for a in prodata %}
-    <div class="col-sm-3 pt-3 pb-2">
-        <div class="card mensbg">
-            <img src="/{{a.ppic}}" class="img-card-top"/>
-            <div class="card-body">
-                <h5 class="card-title">{{a.pcategory}}</h5>
-                <hr class="divider"/>
-                <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
-                <b class="text-danger ps-2 fs-5"><s>{{a.pprice}}/-</s></b>
-                <b class="text-success ps-2 fs-5"> {{a.dprice}}/-</b><br>
-                <b class="btn btn-sm mt-2 bg-ocolor"><b>Size</b> - {{a.psize}}</b>
-                <div class="mt-2 float-end" style="height:20px; width:20px; background:{{a.pcolor}}; border-radius:3px;"></div>
-                <hr class="divider">
-                <span class="text-primary">{{a.pdel}}</span>
-                <span class="text-muted float-end"><i class="fa-solid fa-calendar-days"></i> -{{a.pdate}}</span>
-				<br>
-                <a href="/user/viewproduct?msg={{a.id}}" class="btn btn-sm mt-2 bg-ocolor">Order Now</a>
-                <a href="/user/mcart?pid={{a.id}}" class="btn btn-sm mt-2 float-end bg-ocolor">Cart <i class="fa-solid fa-cart-arrow-down"></i></a><br>
-            </div>
-        </div>
+    <div class="col col-lg-2 col-md-3 pt-4">
+        <a href="/user/viewproduct?msg={{a.id}}" style="text-decoration: none;">
+        <center>
+            <img src="/{{a.ppic}}" class="img-thumbnail" style="max-height: 400px; min-width: 120px;"/>
+        </center>
+            <div class="pt-2">
+                <b class="text-dark">{{a.pcategory}}</b>
+                <b class="text-success ps-2 float-end"><i class="fa-solid fa-indian-rupee-sign text-primary"></i> {{a.dprice}}</b><br>
+                <p class="text-dark pt-2" style="text-align: justify; font-family: 'Times New Roman', Times, serif;">{{a.pdes}}</p>
+                </div>
+                </a>
     </div>
     {% endfor %}
         <!-- mens product end -->
             </div>
     </div>
+</div>
 </div>
 {% endblock %}

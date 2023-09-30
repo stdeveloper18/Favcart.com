@@ -44,12 +44,12 @@ Fav Cart India
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class=" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
@@ -60,17 +60,17 @@ Fav Cart India
 
 <!-- start category -->
 <div class="row category px-3 pt-3 pb-5">
-    <div class="col col-lg-4 w">
+    <div class="col-sm-4 col-lg-4 w">
         <center>
             <a href="/user/mens/" class="btn btn-lg btn1">Mens</a>
         </center>
     </div>
-    <div class="col col-lg-4 m">
+    <div class="col-sm-4 col-lg-4 m">
         <center>
             <a href="/user/womens/" class="btn btn-lg btn1">Womens</a>
         </center>
     </div>
-    <div class="col col-lg-4 k">
+    <div class="col-sm-4 col-lg-4 k">
         <center>
             <a href="/user/kids/" class="btn btn-lg btn1">Kids</a>
         </center>
@@ -79,7 +79,7 @@ Fav Cart India
 <!-- end category -->
 
 <!-- start product -->
-<div class="row product rounded mx-4 pt-2 pb-1">
+<div class="row product rounded mx-1 pt-2 pb-1">
     <div class="fs-2 text-center py-1" style="font-family:Times New Roman"><b>OUR</b> <b class="text-ocolor">PRODUCT <i
                 class="fa-solid fa-cart-arrow-down"></i></b>
         <u class="text-ocolor "></u>
@@ -104,11 +104,11 @@ Fav Cart India
 <!-- end product -->
 
 <!-- start new arivals -->
-<div class="row rounded mt-3 mx-3 px-3">
+<div class="row rounded mt-3 mx-1 px-1">
     <div class="col-lg-3 col-sm-12 col-md-12 py-3 arr text-center mensbg" style="min-height:250px;">
         <div class="text-center"><b class="fs-1" style="font-family:Times New Roman">New <b
                     class="text-ocolor fs-1">Arivals <i class="fa-solid fa-shirt"></i></b></b>
-            <p class="fs-5 px-5" style="text-align:justify;">
+            <p class="fs-5 px-1" style="text-align:justify;font-family: 'Times New Roman', Times, serif;">
                 Here are some product which are new arivals in our store. These are very beautiful and branded product.
                 These are in very low price and vary soft to wear. Any middle class family man can bear it. This is very
                 beautiful and attractive product that will be remember . In Fav Cart India You will get best Product in
@@ -127,9 +127,8 @@ Fav Cart India
                 <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
                 <b class="text-danger ps-2 fs-5"><s>{{a.pprice}}/-</s></b>
                 <b class="text-success ps-2 fs-5"> {{a.dprice}}/-</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b class="btn btn-sm bg-ocolor"> {{a.psize}}</b>
-                <div class="float-end mt-2"
-                    style="height:20px; width:20px; background:{{a.pcolor}}; border-radius:3px;"></div>
+                <b class="btn btn-sm bg-ocolor float-end"> {{a.psize}}</b>
+                <!-- <div class="float-end mt-2" style="height:20px; width:20px;border-radius:3px; background:{{a.pcolor}};"></div> -->
                 <hr class="divider">
                 <span class="text-primary fs-5">{{a.pdel}}</span>
                 <span class="text-muted float-end"><b>Date</b> : {{a.pdate}}</span><br>
@@ -166,53 +165,59 @@ Fav Cart India
 <!-- end bigsale -->
 
 <!--Mens Product-->
+<div class="container">
 <div class="row">
     <div class="fs-2 py-3" style="font-family:Times New Roman;"><b class="ps-2" style="border-left:5px solid #24e925;"> Latest Mens</b> <b class="text-ocolor">Product</b></div>
     {% for men in men %}
     <div class="col col-lg-3 col-md-6 p-3">
         <img src="/{{men.ppic}}" class="img-thumbnail" style="max-height:400px;"/>
         <center>
-        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> Price </b>
-        <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b>
+        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
+        <!-- <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b> -->
         <b class="text-success ps-2 fs-5"> {{men.dprice}}/-</b><br><br>
         <a href="/user/viewproduct?msg={{men.id}}" class="btn btn-sm mt-2 px-5 bg-ocolor">Shop Now</a>
             </center>
     </div>
     {% endfor %}
 </div>
+</div>
 <!--End Mens Product-->
 
 <!--Women Product-->
+<div class="container">
 <div class="row">
     <div class="fs-2 py-3" style="font-family:Times New Roman;"><b class="ps-2" style="border-left:5px solid #24e925;"> Latest Women</b> <b class="text-ocolor">Product</b></div>
     {% for men in women %}
     <div class="col col-lg-3 col-md-6 p-3">
         <img src="/{{men.ppic}}" class="img-thumbnail" style="max-height:400px;"/>
         <center>
-        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> Price </b>
-        <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b>
+        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i></b>
+        <!-- <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b> -->
         <b class="text-success ps-2 fs-5"> {{men.dprice}}/-</b><br><br>
         <a href="/user/viewproduct?msg={{men.id}}" class="btn btn-sm mt-2 px-5 bg-ocolor">Shop Now</a>
             </center>
     </div>
     {% endfor %}
 </div>
+</div>
 <!--End Women Product-->
 
 <!--KId Product-->
+<div class="container">
 <div class="row">
     <div class="fs-2 py-3" style="font-family:Times New Roman;"><b class="ps-2" style="border-left:5px solid #24e925;"> Latest Kid</b> <b class="text-ocolor">Product</b></div>
     {% for men in kid %}
     <div class="col col-lg-3 col-md-6 p-3">
         <img src="/{{men.ppic}}" class="img-thumbnail" style="max-height:400px;"/>
         <center>
-        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> Price </b>
-        <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b>
+        <b class="btn btn-sm bg-ocolor"><i class="fa-solid fa-indian-rupee-sign"></i> </b>
+        <!-- <b class="text-danger ps-2 fs-5"><s>{{men.pprice}}/-</s></b> -->
         <b class="text-success ps-2 fs-5"> {{men.dprice}}/-</b><br><br>
         <a href="/user/viewproduct?msg={{men.id}}" class="btn btn-sm mt-2 px-5 bg-ocolor">Shop Now</a>
             </center>
     </div>
     {% endfor %}
+</div>
 </div>
 <!--KID Mens Product-->
 
@@ -227,7 +232,7 @@ Fav Cart India
                 <div class="col-sm-3">
                     <i class="fa-solid fa-truck fs-1 ps-4 pt-4 text-ocolor"></i>
                 </div>
-                <div class="col-sm-9 pt-3 ps-1">
+                <div class="col-sm-9 pt-3 ps-3">
                     <b>FREE SHOPPING</b><BR>
                     For all order upto ₹ 2000
                 </div>
@@ -238,7 +243,7 @@ Fav Cart India
                 <div class="col-sm-3">
                     <i class="fa-solid fa-clock fs-1 ps-4 pt-4 text-ocolor"></i>
                 </div>
-                <div class="col-sm-9 pt-3 ps-0">
+                <div class="col-sm-9 pt-3 ps-3">
                     <b>DELIVERY ON TIME</b><BR>
                     Fastest Delivery at Doorstep
                 </div>
@@ -249,7 +254,7 @@ Fav Cart India
                 <div class="col-sm-3">
                     <i class="fa-solid fa-rotate-left fs-1 ps-4 pt-4 text-ocolor"></i>
                 </div>
-                <div class="col-sm-9 pt-3 ps-0">
+                <div class="col-sm-9 pt-3 ps-3">
                     <b>FREE RETURNS</b><BR>
                     Free Returns for Bad Product
                 </div>
@@ -260,7 +265,7 @@ Fav Cart India
                 <div class="col-sm-3">
                     <i class="fa-solid fa-lock fs-1 ps-4 pt-4 text-ocolor"></i>
                 </div>
-                <div class="col-sm-9 pt-3 ps-0">
+                <div class="col-sm-9 pt-3 ps-3">
                     <b>SECURE PAYMENT</b><BR>
                     100% Secure Payment
                 </div>
